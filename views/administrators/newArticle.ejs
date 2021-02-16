@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>New Article | MyRestaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/restaurantAdministrators.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<div class="container new-article-container p-5 shadow">
+    <h1 class="mb-4 text-center">New Article</h1>
+
+    <form action="/restaurant-administrators/new" method="POST">
+        <div class="form-group mb-4">
+            <label for="article-type">Type</label>
+            <input type="text" name="type" id="article-type" class="form-control" required>
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="ingredients">Ingredients</label>
+            <input type="text" name="ingredients" id="ingredients" class="form-control" required>
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="price">Price</label>
+            <input type="text" name="price" id="price" class="form-control" required>
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="image" class="form-label">Image</label>
+            <input class="form-control" type="file" id="image" name="image">
+        </div>
+
+        <a href="/restaurant-administrators" class="btn btn-secondary btn-new-cancel">Cancel</a>
+        <button type="submit" class="btn btn-primary btn-new-save">Save</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<div class="form-group mb-4">
+    <label for="name">Name</label>
+    <input type="text" value="<%= restaurant.name %>" name="name" id="name" class="form-control" required>
+</div>
+
+<div class="form-group mb-4">
+    <label for="city">City</label>
+    <input type="text" value="<%= restaurant.city %>" name="city" id="city" class="form-control" required>
+</div>
+<!--
+<div class="form-group mb-4">
+    <label for="latitude">Latitude</label>
+    <input name="latitude" value="<%= restaurant.latitude %>" id="latitude" class="form-control">
+</div>
+
+<div class="form-group mb-4">
+    <label for="longitude">Longitude</label>
+    <input name="longitude" value="<%= restaurant.longitude %>" id="longitude" class="form-control" required>
+</div>
+-->
+<div class="form-group mb-4">
+    <label for="street-name">Street Name</label>
+    <input name="streetName" value="<%= restaurant.streetName %>" id="street-name" class="form-control" required>
+</div>
+
+<div class="form-group mb-4">
+    <label for="street-number">Street Number</label>
+    <input name="streetNumber" value="<%= restaurant.streetNumber %>" id="street-number" class="form-control" required>
+</div>
+
+<div class="form-group mb-4">
+    <label for="stars">Stars</label>
+    <select class="form-select" name="stars" value="<%= restaurant.stars %>" id="stars" aria-label="Stars select" required>
+        <option selected hidden>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        <option value="4">Four</option>
+        <option value="5">Five</option>
+    </select>
+    <!-- ako value za ovaj select ne bude dobro radio, onda probati checkbox ili obicni text input -->
+    <!--<input name="stars" value="<%= restaurant.stars %>" id="stars" class="form-control" required>-->
+</div>
+
+<div class="form-group mb-4">
+    <label for="restaurant-type">Restaurant Type</label>
+    <input name="restaurantType" value="<%= restaurant.restaurantType %>" id="restaurant-type" class="form-control" required>
+</div>
+
+<a href="/administrator" class="btn btn-secondary btn-new-cancel">Cancel</a>
+<button type="submit" class="btn btn-primary btn-new-save">Save</button>

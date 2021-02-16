@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    /*background-color: #D8572A;*/
+}
+
+a {
+    color: #558B72;
+}
+
+a:hover {
+    color: #558B72;
+}
+
+.btn-add-new {
+    border: 1px solid #67A286;
+    background-color: #67A286;
+}
+
+.btn-add-new:hover,
+.btn-add-new:focus,
+.btn-add-new.active {
+    border: 1px solid #558B72;
+    background-color: #558B72;
+}
+
+.btn-edit {
+    border: 1px solid #67A286;
+    background-color: #67A286;
+}
+
+.btn-edit:hover,
+.btn-edit:focus,
+.btn-edit:active {
+    border: 1px solid #558B72;
+    background-color: #558B72;
+}
+
+.btn-delete {
+    border: 1px solid #67A286;
+    background-color: #fff;
+    color: #67A286;
+}
+
+.btn-delete:hover,
+.btn-delete:focus,
+.btn-delete:active {
+    border: 1px solid #558B72;
+    background-color: #fff;
+    color: #558B72;
+}
+
+.btn-admin {
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: #81B29A;
+}
+
+.btn-admin:hover,
+.btn-admin:focus,
+.btn-admin:active {
+    border: 1px solid #81B29A;
+    background-color: #81B29A;
+    color: #fff;
+}
+
+/* css za newRestaurant.ejs */
+.new-restaurant-container {
+    max-width: 500px;
+
+}
+
+.btn-new-save {
+    border: 1px solid #81B29A;
+    background-color: #81B29A;
+    color: #fff;
+}
+
+.btn-new-save:hover,
+.btn-new-save:focus,
+.btn-new-save:active {
+    border: 1px solid #558B72;
+    background-color: #558B72;
+    color: #fff;
+}
+
+.btn-new-cancel {
+
+}

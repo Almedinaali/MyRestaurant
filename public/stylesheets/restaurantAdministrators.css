@@ -1,0 +1,193 @@
+.main-wrapper {
+
+}
+
+.inside-wrapper {
+
+}
+
+.restaurant-main-heading {
+    font-size: 50px;
+    border-bottom: 1px solid #eee;
+}
+
+#restaurant-info-btn {
+    border: 1px solid #67A286;
+    background-color: #fff;
+    color: #67A286;
+}
+
+/**/
+.info-box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 99999;
+    opacity:0;
+    color: black;
+    -webkit-transition: opacity 100ms ease-in;
+    -moz-transition: opacity 100ms ease-in;
+    transition: opacity 100ms ease-in;
+    pointer-events: none;
+}
+
+.info-box.show{
+    opacity:1;
+    pointer-events: auto;
+}
+
+.info-box:target {
+    opacity:1;
+    pointer-events: auto;
+}
+
+.info-box div {
+    width: 230px;
+    position: relative;
+    margin: 10% auto;
+    padding: 16px 20px 21px 20px;
+    border-radius: 4px;
+    background: #fff;
+    border: 2px white solid;
+}
+
+.info-box p {
+    color: black;
+    text-shadow: none;
+    text-transform: none;
+    font-size: 14px;
+}
+.close {
+    background: black;
+    color: white;
+    line-height: 24px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 26px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #666;
+    border-radius: 12px;
+    box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #aaa; }
+/**/
+
+.btn-add-new {
+    border: 1px solid #67A286;
+    background-color: #67A286;
+}
+
+.btn-add-new:hover,
+.btn-add-new:focus,
+.btn-add-new.active {
+    border: 1px solid #558B72;
+    background-color: #558B72;
+}
+
+.menu-wrapper {
+    margin: auto;
+}
+
+.menu-item-card {
+}
+
+.article-type {
+    font-weight: bold;
+}
+
+#menu-item-image-div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu-item-img {
+    vertical-align: middle;
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#menu-item-desc-div {
+}
+
+.card-text {
+    color: grey;
+    font-size: 0.9rem;
+}
+
+.menu-item-price {
+    font-weight: bold;
+    color: #67A286;
+    font-size: 1.1em;
+}
+
+#menu-item-btn-div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#menu-item-order-btn {
+    width: 80px;
+    border: 1px solid #67A286;
+    background-color: #fff;
+    color: #67A286;
+}
+
+#menu-item-order-btn:hover,
+#menu-item-order-btn:focus,
+#menu-item-order-btn:active {
+    border: 1px solid #67A286;
+    background-color: #67A286;
+    color: #fff;
+}
+
+#menu-item-delete-btn {
+    background-color: #fff;
+    border: none;
+    align-self: start;
+}
+
+.item-x {
+    color: #558B72;
+}
+
+@media screen and (max-width: 800px){
+
+    body {
+        padding: 50px 0 !important;
+    }
+    .menu-wrapper {
+        width: 100% !important;
+    }
+    #menu-item-order-btn {
+        width: 40px;
+    }
+}
+
+/* css za newArticle.ejs */
+.new-article-container {
+    max-width: 500px;
+}
+
+.btn-new-save {
+    border: 1px solid #81B29A;
+    background-color: #81B29A;
+    color: #fff;
+}
+
+.btn-new-save:hover,
+.btn-new-save:focus,
+.btn-new-save:active {
+    border: 1px solid #558B72;
+    background-color: #558B72;
+    color: #fff;
+}
