@@ -10,7 +10,7 @@
 <div class="container new-article-container p-5 shadow">
     <h1 class="mb-4 text-center">New Article</h1>
 
-    <form action="/restaurant-administrators/new" method="POST">
+    <form action="/restaurant-administrators/new" method="POST" encType="multipart/form-data">
         <div class="form-group mb-4">
             <label for="article-type">Type</label>
             <input type="text" name="type" id="article-type" class="form-control" required>
@@ -33,7 +33,7 @@
 
         <div class="form-group mb-4">
             <label for="image" class="form-label">Image</label>
-            <input class="form-control" type="file" id="image" name="image">
+            <input class="form-control" type="file" id="image" name="image" required>
         </div>
 
         <a href="/restaurant-administrators" class="btn btn-secondary btn-new-cancel">Cancel</a>

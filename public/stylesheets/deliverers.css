@@ -1,0 +1,58 @@
+.restaurant-main-heading {
+    font-size: 50px;
+    border-bottom: 1px solid #eee;
+}
+
+#restaurant-info-btn {
+    border: 1px solid #67A286;
+    background-color: #fff;
+    color: #67A286;
+}
+
+.menu-wrapper {
+    margin: auto;
+}
+
+
+.card-text {
+    color: grey;
+    font-size: 0.9rem;
+}
+
+.order-price {
+    font-weight: bold;
+    color: #67A286;
+    font-size: 1.2em;
+}
+
+#menu-item-btn-div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#menu-item-order-btn {
+    width: 40px;
+    border: 1px solid #67A286;
+    background-color: #fff;
+    color: #67A286;
+}
+
+#menu-item-order-btn:hover,
+#menu-item-order-btn:focus,
+#menu-item-order-btn:active {
+    border: 1px solid #67A286;
+    background-color: #67A286;
+    color: #fff;
+}
+
+
+@media screen and (max-width: 800px){
+
+    body {
+        padding: 50px 0 !important;
+    }
+    .menu-wrapper {
+        width: 100% !important;
+    }
+}

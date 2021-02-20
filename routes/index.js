@@ -69,6 +69,8 @@ router.post('/login', function(req, res, next) {
       res.redirect('../administrator');
     } else if (currentUser.userType === 'Administrator restorana') {
       res.redirect('../restaurant-administrators');
+    } else if (currentUser.userType === 'Dostavljac') {
+      res.redirect('../deliverers');
     }
   })
 });

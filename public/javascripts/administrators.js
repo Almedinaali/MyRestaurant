@@ -16,4 +16,5 @@ $(".info-box .close").click(function(){
 function articleAvailable() {
     var x = document.getElementById("available").checked;
     console.log("ONCHANGE: " + x);
+
 }

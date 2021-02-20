@@ -6,6 +6,8 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 var methodOverride = require('method-override');
 const jwt = require('jsonwebtoken');
+const fileUpload = require('express-fileupload');
+
 const User = require('./Models/User');
 
 const tokenKey = 'MIHCAgEAMA0GCSqGSIb3DQEBAQUABIGtMIGqAgEAAiEAhzo0TLmplZq8hlpWVQidQNpEd2IkJz9cOknwnz+sRbsCAwEAAQIgZdTm3YBSvF4x6drNeGtsPvixGrgDEI1e';
@@ -15,12 +17,14 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const administratorRouter = require('./routes/administrator');
 const restaurantAdministratorsRouter = require('./routes/restaurantAdministrators');
+const deliverersRouter = require('./routes/deliverers');
 const customersRouter = require('./routes/customers');
 
 // Connecting to MongoDB Atlas
 mongoose.connect('mongodb+srv://almedina_a:djwfu826i@cluster0.bspzc.mongodb.net/restaurant_db?retryWrites=true&w=majority', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: false
 }).then(() => {
   console.log('Mongodb connected.');
 });
@@ -37,6 +41,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(fileUpload());
 app.use(methodOverride('_method'));
 
 //Token resolver
@@ -55,8 +60,7 @@ app.use((req, res, next) => {
     }
 
     jwt.verify(token, tokenKey, function (err, payload) {
-    console.log(err);
-    console.log('PAYLOAD: ' + payload);
+
       if (payload) {
         User.findOne({ _id: mongoose.Types.ObjectId(payload.userId)})
             .then(user => {
@@ -83,6 +87,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/administrator', administratorRouter);
 app.use('/restaurant-administrators', restaurantAdministratorsRouter);
+app.use('/deliverers', deliverersRouter);
 app.use('/customers', customersRouter);
 
 // catch 404 and forward to error handler

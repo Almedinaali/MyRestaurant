@@ -116,28 +116,32 @@ router.post('/new', function(req, res, next) {
 
 // Rendering page (form) for adding new restaurant administrator to db
 router.get('/new-admin', function(req, res, next) {
-    res.render('admin/newAdmin', { error: "" });
+
+    Restaurant.find()
+        .then(restaurants => {
+            res.render('admin/newAdmin', { restaurants: restaurants });
+        });
 });
 
 // adding new restaurant administrator to db
 router.post('/new-admin', function(req, res, next) {
-    // todo: implementirati login za admine restorana u index.js login post ruti
+
     // https://mongoosejs.com/docs/populate.html
-    console.log(req.body);
     let firstName = req.body.first_name;
     let lastName = req.body.last_name;
     let username = req.body.username;
     let email = req.body.email;
     let password = req.body.password;
+    let restaurantId = req.body.restaurantId;
     // todo: let address = provjeriti jos kako cu za adresu uraditi, klik na mapu ili unos latituda, longituda
     let userType = 'Administrator restorana';
-    let restaurantName = req.body.restaurant_name;
 
     usersService.findByUsername(username, (response) => {
 
         // if username already exists:
         if (response != null) {
-            res.render('admin/newAdmin', {error: 'That username is already taken!'});
+            res.redirect(req.baseUrl);
+            console.log("Username is already taken!");
             return;
         }
 
@@ -154,7 +158,7 @@ router.post('/new-admin', function(req, res, next) {
             // (and restaurant name) is saved to collection Administrator
             administratorsService.create({
                 user: response._id,
-                restaurantName: restaurantName
+                restaurantId: restaurantId
             }, (adminRes) => {
                 res.redirect(req.baseUrl);
                 console.log(adminRes);
@@ -165,7 +169,6 @@ router.post('/new-admin', function(req, res, next) {
 
 // Deleting restaurant administrator from db
 router.delete('/:adminId', async function (req, res) {
-    // todo: mozda sve querije u service prebaciti
 
     // koristenjem callback fje
     await Administrator.findById(req.params.adminId, async function (err, admin) {

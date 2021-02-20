@@ -35,10 +35,19 @@
             <label for="administrators-password">Password</label>
             <input type="text" name="password" id="administrators-password" class="form-control" required>
         </div>
-
+<!--
         <div class="form-group mb-4">
             <label for="administrators-restaurant-name">Restaurant Name</label>
             <input type="text" name="restaurant_name" id="administrators-restaurant-name" class="form-control" required>
+        </div>
+-->
+        <div class="form-group mb-4">
+            <label for="administrators-restaurant-name">Choose Restaurant</label>
+            <select id="administrators-restaurant-name" name="restaurantId" class="form-select" aria-label="Default select example">
+                <% restaurants.forEach(restaurant => { %>
+                    <option value="<%= restaurant._id %>"><%= restaurant.name %></option>
+                <% }) %>
+            </select>
         </div>
 
         <a href="/administrator" class="btn btn-secondary btn-new-cancel">Cancel</a>

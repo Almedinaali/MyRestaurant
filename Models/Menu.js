@@ -8,8 +8,14 @@ const MenuSchema = new Schema({
     articleName: String,
     articleIngredients: String,
     articlePrice: Number,
-    articlePriceOnSale: Number, // kad admin postavi onSale na true, onda mora unijeti i novu cijenu artikla
-    articleImage: String, // promijeniti tip
+    articlePriceOnSale: {
+        type: Number,
+        default: null
+    }, // kad admin postavi onSale na true, onda mora unijeti i novu cijenu artikla
+    articleImage: {
+        type: String, // cuvam samo naziv slike u bazi, a u folderu images po nazivu nadjem sliku
+        default: null
+    },
     available: {
         type: Boolean,
         default: true

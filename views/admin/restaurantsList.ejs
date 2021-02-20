@@ -40,7 +40,7 @@
                     <!-- Displaying and creating restaurant admins -->
                     <div class="card-footer">
                         <% admins.forEach(admin => {
-                            if (admin.restaurantName == restaurant.name) { %>
+                            if (admin.restaurantId == restaurant._id) { %>
                                 <div class="btn-group mb-2" role="group">
                                     <button class="btn btn-secondary btn-sm shadow-sm dropdown-toggle rounded-pill btn-admin" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <%= admin.user.firstName %> <%= admin.user.lastName %>

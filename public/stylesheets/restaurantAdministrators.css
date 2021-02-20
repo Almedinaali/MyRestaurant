@@ -142,9 +142,19 @@
     color: #67A286;
 }
 
+#menu-order-btn {
+    width: 40px;
+    border: 1px solid #67A286;
+    background-color: #fff;
+    color: #67A286;
+}
+
 #menu-item-order-btn:hover,
+#menu-order-btn:hover,
 #menu-item-order-btn:focus,
-#menu-item-order-btn:active {
+#menu-order-btn:focus,
+#menu-item-order-btn:active,
+#menu-order-btn:active {
     border: 1px solid #67A286;
     background-color: #67A286;
     color: #fff;
@@ -191,3 +201,25 @@
     background-color: #558B72;
     color: #fff;
 }
+
+.edit-restaurant-info {
+    border: none;
+}
+
+#end-sale-text {
+    text-decoration: none;
+    color: red;
+}
+
+.save-modal-btn {
+    background-color: #67A286;
+    border: 1px solid #67A286;
+}
+
+.save-modal-btn:hover,
+.save-modal-btn:focus,
+.save-modal-btn.active {
+    background-color: #558B72;
+    border: 1px solid #558B72;
+}
+

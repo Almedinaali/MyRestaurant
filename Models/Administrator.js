@@ -11,7 +11,7 @@ const AdministratorSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    restaurantName: String // promijeniti u restaurantId i njega spremati umjesto naziva restorana
+    restaurantId: String // id restorana za koji admin radi
 });
 
 const Administrator = mongoose.model('Administrator', AdministratorSchema);
