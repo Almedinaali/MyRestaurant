@@ -3,19 +3,35 @@ const Schema = mongoose.Schema;
 
 // one doc of Order collection respresents one order
 const OrderSchema = new Schema({
-    restaurantId: String, // id odgovarajuceg restorana ciji je ovo artikal
-    orderArticles: String, // artikli koje je korisnik narucio
-    price: Number, // cijena narudzbe
-    // adresa na koju treba dostaviti narudzbu, cuvat cu ili kao naziv adrese ili kao par lat, long
-    //latitude: Number,
-    //longitude: Number,
-    streetName: String,
-    streetNumber: Number,
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    restaurantId: {
+        type: String,
+        default: null // kad se tek kreira korpa bude null, dok customer ne izabere restoran
+    },
+    orderArticles: [
+        {
+            articleId: {
+                type: Schema.Types.ObjectId,
+                ref: 'Menu',
+                default: null
+            }
+        }
+    ], // artikli koje je korisnik narucio
+    price: {
+        type: Number,
+        default: 0
+    }, // cijena narudzbe
     quantity: {
         type: Number,
         default: 1
     },
-    paymentMethod: String, // keš, kartica
+    paymentMethod: {
+        type: String,
+        default: "Keš"
+    }, // keš, kartica
     deliveryTime: {
         type: Date,
         default: Date.now()
@@ -24,14 +40,14 @@ const OrderSchema = new Schema({
         type: String,
         default: null
     },
-    status: { // false = nije isporucena, true = isporucena
+    status: { // null = kupac bira artikle narudzbe, false = kupac potvrdio narudzbu ali nije jos isporucena, true = isporucena
         type: Boolean,
-        default: false
+        default: null
     },
     delivererId: {
         type: String,
         default: null
-    }
+    },
 });
 
 const Order = mongoose.model('Order', OrderSchema);

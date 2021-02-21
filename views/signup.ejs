@@ -9,22 +9,34 @@
 <div class="card p-5 shadow" id="signup-form-container">
     <h1 class="mb-4 text-center">Sign Up</h1>
     <form action="/signup" method="post">
+
         <div class="mb-3">
             <label for="signup_first_name" class="form-label">First Name</label>
             <input type="text" name="first_name" class="form-control" id="signup_first_name" aria-describedby="inputName" required>
         </div>
+
         <div class="mb-3">
             <label for="signup_last_name" class="form-label">Last Name</label>
             <input type="text" name="last_name" class="form-control" id="signup_last_name" aria-describedby="inputLastName" required>
         </div>
+
         <div class="mb-3">
             <label for="signup_username" class="form-label">Username</label>
             <input type="text" name="username" class="form-control" id="signup_username" aria-describedby="inputUsername" required>
         </div>
+
+        <label for="signup_address" class="form-label">Address (Latitude/Longitude)</label>
+        <div class="mb-3 input-group" id="signup_address">
+                <input type="text" name="latitude" class="form-control" id="latitude" aria-describedby="inputAddress" required>
+                <span class="input-group-text">/</span>
+                <input type="text" name="longitude" class="form-control" id="longitude" aria-describedby="inputAddress" required>
+        </div>
+
         <div class="mb-3">
             <label for="signup_email" class="form-label">Email Address</label>
             <input type="email" name="email" class="form-control" id="signup_email" aria-describedby="inputEmail" required>
         </div>
+
         <div class="mb-3">
             <label for="signup_password" class="form-label">Password</label>
             <input type="password" name="password" class="form-control" id="signup_password" required>

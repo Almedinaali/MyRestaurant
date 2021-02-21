@@ -1,10 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const NodeGeocoder = require('node-geocoder');
 
 const usersService = require('../Services/UsersService');
 
 const tokenKey = 'MIHCAgEAMA0GCSqGSIb3DQEBAQUABIGtMIGqAgEAAiEAhzo0TLmplZq8hlpWVQidQNpEd2IkJz9cOknwnz+sRbsCAwEAAQIgZdTm3YBSvF4x6drNeGtsPvixGrgDEI1e';
+
+// Specifying Geocoding Provider in an Options Object parameter
+// Provider is OpenStreetMap
+const options = {
+  provider: 'openstreetmap'
+};
+
+// Passing options to an instance of nodeGeocoder
+const geoCoder = NodeGeocoder(options);
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -61,7 +72,6 @@ router.post('/login', function(req, res, next) {
     // The value parameter may be a string or object converted to JSON.
     // https://expressjs.com/en/5x/api.html#res.cookie
     res.cookie('token', token);
-    //res.status(200).send({auth: true, token: token});
 
     if (currentUser.userType === 'Kupac') {
       res.redirect('../customers');
@@ -86,7 +96,9 @@ router.post('/signup', function(req, res, next) {
   let username = req.body.username;
   let email = req.body.email;
   let password = req.body.password;
-  // todo: let address = provjeriti jos kako cu za adresu uraditi, klik na mapu ili unos latituda, longituda
+  // todo: let address = mozda jos dodati i naziv i broj ulice
+  let latitude = req.body.latitude;
+  let longitude = req.body.longitude;
   let userType = 'Kupac';
 
   usersService.findByUsername(username, (response) => {
@@ -106,7 +118,8 @@ router.post('/signup', function(req, res, next) {
       username: username,
       email: email,
       password: password,
-      // dodati i dodavanje adrese klikom na mapu ili unos kao (latituda, longituda)
+      latitude: latitude,
+      longitude: longitude,
       userType: userType
     }, (response) => {
       res.redirect(req.baseUrl + '/login'); //The req.baseUrl property is the URL path on which a router instance was mounted.

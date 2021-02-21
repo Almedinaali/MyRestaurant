@@ -13,7 +13,7 @@ const RestaurantSchema = new Schema({
     archived: Boolean, // dodano
     deliveryRange: {
         type: Number, // u kilometrima opseg dostave
-        default: 0    // tamo gdje je dostava 0, dostavljaju u citavom gradu
+        default: null    // tamo gdje je dostava null, dostavljaju u citavom gradu
     },
     workingHours: {
         type: String,

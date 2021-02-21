@@ -14,7 +14,14 @@ const UserSchema = new Schema({
     username: String,
     email: String,
     password: String,
-    //address: treba biti unesena ili klikom na mapu ili kao par (latituda, longituda)
+    latitude: {
+        type: Number,
+        default: null
+    },
+    longitude: {
+        type: Number,
+        default: null
+    },
     userType: String  // user types: Kupac, Administrator, Dostavljac, Administrator restorana
 });
 

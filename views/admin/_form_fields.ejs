@@ -7,17 +7,7 @@
     <label for="city">City</label>
     <input type="text" value="<%= restaurant.city %>" name="city" id="city" class="form-control" required>
 </div>
-<!--
-<div class="form-group mb-4">
-    <label for="latitude">Latitude</label>
-    <input name="latitude" value="<%= restaurant.latitude %>" id="latitude" class="form-control">
-</div>
 
-<div class="form-group mb-4">
-    <label for="longitude">Longitude</label>
-    <input name="longitude" value="<%= restaurant.longitude %>" id="longitude" class="form-control" required>
-</div>
--->
 <div class="form-group mb-4">
     <label for="street-name">Street Name</label>
     <input name="streetName" value="<%= restaurant.streetName %>" id="street-name" class="form-control" required>
@@ -44,8 +34,29 @@
 
 <div class="form-group mb-4">
     <label for="restaurant-type">Restaurant Type</label>
+    <select id="restaurant-type" name="restaurantType" class="form-select" aria-label="Default select example">
+        <option value="Picerija">Picerija</option>
+        <option value="Ćevabdžinica">Ćevabdžinica</option>
+        <option value="Buregdžinica">Buregdžinica</option>
+        <option value="Slastičarna">Slastičarna</option>
+        <option value="Bistro">Bistro</option>
+        <option value="Pekara">Pekara</option>
+        <option value="Sendvičara">Sendvičara</option>
+        <option value="Restoran s hamburgerima">Restoran s hamburgerima</option>
+        <option value="Roštilj">Roštilj</option>
+        <option value="Fast Food">Fast Food</option>
+        <option value="Bosanska kuhinja">Bosanska kuhinja</option>
+        <option value="Trattoria">Trattoria</option>
+        <option value="Kineska hrana">Kineska hrana</option>
+        <option value="Turska hrana">Turska hrana</option>
+        <option value="Taverna">Taverna</option>
+    </select>
+</div>
+<!--
+<div class="form-group mb-4">
+    <label for="restaurant-type">Restaurant Type</label>
     <input name="restaurantType" value="<%= restaurant.restaurantType %>" id="restaurant-type" class="form-control" required>
 </div>
-
+-->
 <a href="/administrator" class="btn btn-secondary btn-new-cancel">Cancel</a>
 <button type="submit" class="btn btn-primary btn-new-save">Save</button>

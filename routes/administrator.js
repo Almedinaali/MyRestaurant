@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
             Administrator.find({})
                 .populate('user')
                 .then(admins => {
-                    console.log(admins);
+                    console.log(restaurants);
                     res.render('admin/restaurantsList', { restaurants: restaurants, admins: admins });
                 });
         });
@@ -96,22 +96,6 @@ router.post('/new', function(req, res, next) {
         .catch((err) => {
             console.log(err);
         });
-
-
-    /*restaurantsService.create({
-        name: name,
-        latitude: latitude,
-        longitude: longitude,
-        city: city,
-        streetName: streetName,
-        streetNumber: streetNumber,
-        stars: stars,
-        restaurantType: restaurantType,
-        archived: archived
-    }, (response) => {
-        res.redirect(req.baseUrl); //The req.baseUrl property is the URL path on which a router instance was mounted.
-        console.log("LATITUDA (u kreiranju restorana)" + latitude);
-    });*/
 });
 
 // Rendering page (form) for adding new restaurant administrator to db
@@ -133,7 +117,6 @@ router.post('/new-admin', function(req, res, next) {
     let email = req.body.email;
     let password = req.body.password;
     let restaurantId = req.body.restaurantId;
-    // todo: let address = provjeriti jos kako cu za adresu uraditi, klik na mapu ili unos latituda, longituda
     let userType = 'Administrator restorana';
 
     usersService.findByUsername(username, (response) => {
