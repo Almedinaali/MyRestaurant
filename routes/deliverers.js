@@ -8,10 +8,7 @@ const User = require('../Models/User');
 const Administrator = require('../Models/Administrator');
 const Menu = require('../Models/Menu');
 const Deliverer = require('../Models/Deliverer');
-const Order = require('../Models/Deliverer');
-
-const restaurantsService = require('../Services/RestaurantsService');
-const usersService = require('../Services/UsersService');
+const Order = require('../Models/Order');
 
 // Display of orders not yet delivered
 router.get('/', function(req, res, next) {
@@ -26,33 +23,12 @@ router.get('/', function(req, res, next) {
                 .then(restaurant => {
                     console.log('CURRENT RESTAURANT:' + restaurant.name);
 
-                    let orders = [
-                        {
-                            status: false,
-                            orderArticles: "Margherita, Pileća salata", // artikli koje je korisnik narucio
-                            price: 7.5,
-                            streetName: "Ulica",
-                            streetNumber: 6,
-                            paymentMethod: "Po preuzimanju"
-                        },
-                        {
-                            status: false
-                        },
-                        {
-                            status: false
-                        },
-                        {
-                            status: false
-                        },
-                        {
-                            status: false
-                        }
-                    ];
-                    res.render('deliverers/home', { restaurant: restaurant, orders: orders });
-                    /*Order.find({ restaurantId: restaurant._id, status: false })
+                    Order.find({ status: false, delivererId: deliverer._id })
+                        .populate('user')
+                        .populate('orderArticles.articleId')
                         .then(orders => {
                             res.render('deliverers/home', { restaurant: restaurant, orders: orders });
-                        });*/
+                        });
                 })
         });
 });
@@ -70,28 +46,12 @@ router.get('/delivered', function(req, res, next) {
                 .then(restaurant => {
                     console.log('CURRENT RESTAURANT:' + restaurant.name);
 
-                    let orders = [
-                        {
-                            status: true
-                        },
-                        {
-                            status: false
-                        },
-                        {
-                            status: true
-                        },
-                        {
-                            status: true
-                        },
-                        {
-                            status: false
-                        }
-                    ];
-                    res.render('deliverers/home', { restaurant: restaurant, orders: orders });
-                    /*Order.find({ restaurantId: restaurant._id, status: true })
+                    Order.find({ restaurantId: restaurant._id, status: true, delivererId: deliverer._id })
+                        .populate('user')
+                        .populate('orderArticles.articleId')
                         .then(orders => {
                             res.render('deliverers/home', { restaurant: restaurant, orders: orders });
-                        });*/
+                        });
                 })
         });
 });

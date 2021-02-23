@@ -21,7 +21,7 @@
                 <h1 class="restaurant-main-heading"><%= restaurant.name %></h1>
                 <h5 class="d-inline restaurant-address"><%= restaurant.streetName %> <%= restaurant.streetNumber %></h5>
                 <div class="text-right d-inline float-end">
-                    <a class="btn btn-success me-md-2 rounded-pill shadow-sm btn-add-new" href="/restaurant-administrators/new">
+                    <a class="btn btn-success me-md-2 rounded-pill shadow-sm btn-add-new" href="/customers/order-cart">
                         <i class="bi bi-cart4"></i>
                     </a>
                     <a href="#" id="restaurant-info-btn" class="btn btn-primary mx-auto rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -73,7 +73,7 @@
                                         <p class="card-text menu-item-price pt-2">
                                             <% if (article.onSale === true) {%>
                                                 <%= article.articlePriceOnSale %> KM
-                                                <a href="/restaurant-administrators/end-sale/<%= article._id %>" id="on-sale-text">
+                                                <a href="#" id="on-sale-text">
                                                     (on sale)
                                                 </a>
                                             <% } else { %>

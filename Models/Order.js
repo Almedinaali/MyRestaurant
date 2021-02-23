@@ -17,6 +17,10 @@ const OrderSchema = new Schema({
                 type: Schema.Types.ObjectId,
                 ref: 'Menu',
                 default: null
+            },
+            quantity: {
+                type: Number,
+                default: 0
             }
         }
     ], // artikli koje je korisnik narucio

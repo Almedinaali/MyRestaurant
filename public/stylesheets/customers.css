@@ -206,3 +206,13 @@ body {
         width: 40px;
     }
 }
+
+.inside-wrapper {
+    border-bottom: 1px solid #eee;
+}
+
+#confirm-order-btn {
+    border: 1px solid #67A286;
+    background-color: #67A286;
+    color: #fff;
+}

@@ -8,8 +8,8 @@ const User = require('../Models/User');
 const Administrator = require('../Models/Administrator');
 const Menu = require('../Models/Menu');
 const Deliverer = require('../Models/Deliverer');
+const Order = require('../Models/Order');
 
-const restaurantsService = require('../Services/RestaurantsService');
 const usersService = require('../Services/UsersService');
 
 const tokenKey = 'MIHCAgEAMA0GCSqGSIb3DQEBAQUABIGtMIGqAgEAAiEAhzo0TLmplZq8hlpWVQidQNpEd2IkJz9cOknwnz+sRbsCAwEAAQIgZdTm3YBSvF4x6drNeGtsPvixGrgDEI1e';
@@ -222,23 +222,18 @@ router.get('/orders', function(req, res, next) {
             // pronadjem restoran ciji je on admin
             Restaurant.findById(admin.restaurantId)
                 .then(restaurant => {
-                    // todo: u Order.find smjestiti Deliverer.find
-                    /*Order.find({ restaurantId: restaurant._id, delivererId: null })
+
+                    Order.find({ restaurantId: restaurant._id, delivererId: null })
+                        .populate('user')
+                        .populate('orderArticles.articleId')
                         .then(orders => {
+                            console.log("narudzbee: " + orders);
                             Deliverer.find({ restaurantId: restaurant._id })
                                 .populate('user')
                                 .then(deliverers => {
-                                    console.log("dostavljaci: " + deliverers);
+                                    //console.log("dostavljaci: " + deliverers);
                                     res.render('administrators/orders', { restaurant: restaurant, orders: orders, deliverers: deliverers });
                                 });
-                        });*/
-
-                    let orders=['order1','order2','order3','order4','order5'];
-                    Deliverer.find({ restaurantId: restaurant._id })
-                        .populate('user')
-                        .then(deliverers => {
-                            console.log("dostavljaci: " + deliverers);
-                            res.render('administrators/orders', { restaurant: restaurant, orders: orders, deliverers: deliverers });
                         });
                 })
         });

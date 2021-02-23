@@ -34,8 +34,11 @@
                                     <h5 class="card-title pb-2 d-flex">
                                         Narudžba <%= ++i; %>
                                     </h5>
-                                    <p class="card-text fst-italic"><%= order.orderArticles %></p>
-                                    <p class="card-text">Adresa dostave: <%= order.streetName %> <%= order.streetNumber %></p>
+
+                                    <% (order.orderArticles).forEach(article => {%>
+                                        <p class="card-text d-inline fst-italic"><%= article.articleId.articleName %>, </p>
+                                    <% }) %>
+                                    <p class="card-text mt-3">Adresa dostave: <%= order.user.address %></p>
                                     <p class="card-text">Vrijeme dostave: <%= order.deliveryTime %></p>
                                     <p class="card-text">Kontakt telefon: <%= order.phoneNumber %></p>
                                     <p class="card-text">Način plaćanja: <%= order.paymentMethod %></p>

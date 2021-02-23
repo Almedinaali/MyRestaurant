@@ -25,8 +25,5 @@ const RestaurantSchema = new Schema({
     }
 });
 
-// https://mongoosejs.com/docs/models.html
-// When you call mongoose.model() on a schema, Mongoose compiles a model for you.
-// The first argument is the singular name of the collection your model is for.
 const Restaurant = mongoose.model('Restaurant', RestaurantSchema);
 module.exports = Restaurant;

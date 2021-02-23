@@ -39,7 +39,6 @@ router.get('/', function(req, res, next) {
 router.get('/new', function(req, res, next) {
     let restoran = {};
     // Create new empty Restaurant document and render newRestaurant.ejs with form to fill Restaurant fields
-    //res.render('admin/newRestaurant', { restaurant: new Restaurant() });
     res.render('admin/newRestaurant', { restaurant: restoran });
 });
 
